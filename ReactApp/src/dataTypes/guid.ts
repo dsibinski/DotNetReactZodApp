@@ -1,0 +1,3 @@
+export type Guid = string & { isGuid: true };
+
+export const GUID_EMPTY = "00000000-0000-0000-0000-000000000000" as Guid;
