@@ -7,7 +7,7 @@ export const UserViewModelSchema = z.object({
   lastName: z.string(),
   login: z.string(),
   isActive: z.boolean(),
-  loyaltyPoints: z.number(),
+  fidelityPoints: z.number(),
   address: AddressViewModelSchema.nullable(),
 });
 

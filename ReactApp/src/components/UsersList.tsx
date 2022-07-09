@@ -41,7 +41,7 @@ const UsersList = ({ users }: UsersListProps) => {
                 <td>{user.lastName}</td>
                 <td>{user.login}</td>
                 <td>{user.isActive === true ? "Yes" : "No"}</td>
-                <td>{user.loyaltyPoints}</td>
+                <td>{user.fidelityPoints}</td>
                 <td>{!!user.address ? getAddressDigest(user.address) : "-"}</td>
               </tr>
             );
