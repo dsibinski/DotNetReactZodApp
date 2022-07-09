@@ -11,8 +11,18 @@ const UsersList = ({ users }: UsersListProps) => {
     return `${address.street} ${address.streetNumber}, ${address.postalCode} ${address.city}, ${address.country}`;
   };
   return (
-    <>
-      <Table striped bordered hover>
+    <div>
+      <Table
+        striped
+        bordered
+        hover
+        className="center"
+        style={{
+          width: "fit-content",
+          marginLeft: "auto",
+          marginRight: "auto",
+        }}
+      >
         <thead>
           <tr>
             <th>First Name</th>
@@ -26,7 +36,7 @@ const UsersList = ({ users }: UsersListProps) => {
         <tbody>
           {users.map((user) => {
             return (
-              <tr>
+              <tr key={user.id}>
                 <td>{user.name}</td>
                 <td>{user.lastName}</td>
                 <td>{user.login}</td>
@@ -38,7 +48,7 @@ const UsersList = ({ users }: UsersListProps) => {
           })}
         </tbody>
       </Table>
-    </>
+    </div>
   );
 };
 

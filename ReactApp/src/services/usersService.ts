@@ -1,4 +1,8 @@
-import { UserViewModel } from "../viewModels/userViewModel";
+import { z } from "zod";
+import {
+  UserViewModel,
+  UserViewModelSchema,
+} from "../viewModels/userViewModel";
 
 export class UsersService {
   private apiEndpoint: string;
@@ -10,7 +14,8 @@ export class UsersService {
   getAllUsers = async (): Promise<UserViewModel[]> => {
     const url = `${this.apiEndpoint}/AllUsers`;
     const response = await fetch(url);
-    const users = (await response.json()) as UserViewModel[];
+    const usersJson = await response.json();
+    const users = z.array(UserViewModelSchema).parse(usersJson);
     return users;
   };
 }

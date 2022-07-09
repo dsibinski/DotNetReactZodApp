@@ -1,10 +1,12 @@
-import { Guid } from "../dataTypes/guid";
+import { z } from "zod";
 
-export interface AddressViewModel {
-  id: Guid;
-  country: string;
-  city: string;
-  street: string;
-  streetNumber: number;
-  postalCode: string | null;
-}
+export const AddressViewModelSchema = z.object({
+  id: z.string().uuid(),
+  country: z.string(),
+  city: z.string(),
+  street: z.string(),
+  streetNumber: z.number(),
+  postalCode: z.string().nullable(),
+});
+
+export type AddressViewModel = z.infer<typeof AddressViewModelSchema>;
